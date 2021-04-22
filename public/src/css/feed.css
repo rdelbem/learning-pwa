@@ -11,6 +11,10 @@
   display: none;
 }
 
+.shared-moment-card.mdl-card {
+  margin: 10px auto;
+}
+
 .main-image {
   max-width: 100%;
   margin: auto;
