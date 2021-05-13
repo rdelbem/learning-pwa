@@ -33,12 +33,14 @@ self.addEventListener("fetch", (event) => {
       if (response) {
         return response;
       } else {
-        return fetch(event.request).then((res) => {
-          return caches.open("dynamic").then((cache) => {
-            cache.put(event.request.url, res.clone());
-            return res;
-          });
-        });
+        return fetch(event.request)
+          .then((res) => {
+            return caches.open("dynamic").then((cache) => {
+              cache.put(event.request.url, res.clone());
+              return res;
+            });
+          })
+          .catch((error) => {});
       }
     })
   );
